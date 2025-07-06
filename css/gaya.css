@@ -1,0 +1,454 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  font-family: 'Poppins', 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #336699 0%, #5b9bd5 100%) !important;
+    box-shadow: 0 4px 16px rgba(51,102,153,0.10);
+    font-size: 18px;
+    color: #fff !important;
+    border-bottom: 2px solid #e0e7ff;
+}
+
+.navbar .navbar-brand img {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(51,102,153,0.15);
+    border: 2px solid #fff;
+    background: #fff;
+    transition: transform 0.2s;
+}
+.navbar .navbar-brand img:hover {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 8px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+    padding: 8px 18px;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    background: #fff;
+    color: #336699 !important;
+    box-shadow: 0 2px 8px rgba(51,102,153,0.10);
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2851,102,153,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.card-header {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-header h3, .card-header div {
+  margin-bottom: 0;
+}
+.card-header {
+  padding-top: 26px;
+  padding-bottom: 18px;
+}
+
+.card-body hr {
+  border-top: 1.5px solid #e3eaf6;
+  margin: 18px 0;
+}
+
+label {
+  font-weight: 500;
+}
+
+.selBox {
+  border-radius: 0.5rem;
+}
+
+.btn-success, .btn-secondary {
+  min-width: 120px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.active {
+    font-weight: bold;
+    color: #336699;
+}
+
+.tebal{
+    color: #336699;
+    font-weight: bold;
+}
+
+.text-abu1{
+    color: #3b3b39;
+}
+
+.desc{
+    font-size: 1.08rem;
+    color: #444;
+}
+
+.tengah{
+    justify-content:center;
+}
+
+/* footer */
+.abu1{
+    background-color: #f5f5f5;
+}
+
+.abu2{
+    background-color: #336699;
+}
+
+.footer-copyright{
+    color: #fff;
+}
+
+.footer-copyright a{
+    color: #fff;
+}
+
+.icn{
+    color: #336699;
+}
+
+#hasilSIM {
+  font-size: 1.1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 1rem;
+  padding: 32px 8px 24px 8px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+#hasilSIM table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(51,102,153,0.06);
+}
+
+#hasilSIM th, #hasilSIM td {
+  vertical-align: middle !important;
+}
+
+.badge-prediksi {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 6px 0 0;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(51,102,153,0.10);
+  vertical-align: middle;
+}
+
+.badge-layak {
+  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+}
+
+.badge-tidaklayak {
+  background: linear-gradient(90deg, #e74c3c 0%, #ff7675 100%);
+}
+
+.kesimpulan-card {
+  width: 100%;
+  max-width: 800px;
+  margin: 28px auto 0 auto;
+  background: #e6f9ea;
+  border: 1.5px solid #b2f2bb;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(39,174,96,0.08);
+  padding: 28px 18px 18px 18px;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.kesimpulan-card h4 {
+  color: #27ae60;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+.kesimpulan-card hr {
+  border-top: 1.5px solid #b2f2bb;
+  margin: 16px 0;
+}
+.kesimpulan-card .note {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.hasil-container {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hasil-modern-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+.hasil-card {
+  width: 100%;
+  background: #fafdff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(51,102,153,0.08);
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.hasil-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #336699 0%, #5b9bd5 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 12px 18px;
+  letter-spacing: 1px;
+}
+
+.hasil-icon {
+  font-size: 1.2rem;
+}
+
+.hasil-body {
+  padding: 16px 18px 10px 18px;
+}
+
+.hasil-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f4fa;
+  font-size: 1.05rem;
+}
+.hasil-row:last-child { border-bottom: none; }
+
+.hasil-value {
+  font-weight: bold;
+  color: #336699;
+}
+
+.tabel-modern {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 0;
+  box-shadow: 0 1px 6px rgba(51,102,153,0.04);
+}
+
+.tabel-modern th, .tabel-modern td {
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.tabel-modern th {
+  background: #eaf2fb;
+  font-weight: 700;
+  color: #336699;
+  border-bottom: 2px solid #dbeafe;
+}
+
+.tabel-modern td {
+  background: #fff;
+  color: #222;
+  border-bottom: 1px solid #f0f4fa;
+}
+
+.tabel-modern tr:last-child td {
+  border-bottom: none;
+}
+
+.hasil-prediksi-info {
+  width: 100%;
+  max-width: 800px;
+  margin: 28px auto 0 auto;
+  padding: 18px 14px 10px 14px;
+  border-radius: 12px;
+  font-size: 1.13rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 12px rgba(51,102,153,0.06);
+}
+
+.hasil-layak {
+  background: #eafaf1;
+  color: #27ae60;
+  border: 1.5px solid #b2f2bb;
+}
+.hasil-tidaklayak {
+  background: #ffeaea;
+  color: #e74c3c;
+  border: 1.5px solid #ffb3b3;
+}
+
+.hasil-persen {
+  margin-top: 6px;
+  font-size: 1.05rem;
+  color: #222;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.data-section {
+  background: #fafdff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(51,102,153,0.08);
+  padding: 32px 24px 24px 24px;
+  margin-bottom: 32px;
+}
+
+.data-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #336699;
+  margin-bottom: 10px;
+}
+
+.data-section .desc {
+  font-size: 1.08rem;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+#dataLatih_wrapper {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(51,102,153,0.06);
+  padding: 18px 10px 10px 10px;
+}
+
+#dataLatih {
+  width: 100% !important;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  font-size: 1rem;
+}
+
+#dataLatih thead th {
+  background: linear-gradient(90deg, #336699 0%, #5b9bd5 100%);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #e0e7ff;
+  font-size: 1.05rem;
+}
+
+#dataLatih tbody td {
+  background: #fafdff;
+  color: #222;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#dataLatih tbody tr:nth-child(even) td {
+  background: #f3f8fd;
+}
+
+.badge-success, .badge-danger {
+  font-size: 1rem;
+  border-radius: 16px;
+  padding: 8px 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(51,102,153,0.08);
+}
+
+.badge-success {
+  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+  color: #fff;
+}
+
+.badge-danger {
+  background: linear-gradient(90deg, #e74c3c 0%, #ff7675 100%);
+  color: #fff;
+}
+
+.judul-section {
+  width: 100%;
+  margin-bottom: 18px;
+}
+.judul-bg {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%);
+  padding: 28px 0 12px 0;
+  text-align: center;
+}
+.judul-utama {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Poppins',sans-serif;
+  letter-spacing: 1px;
+}
+.judul-sub {
+  color: #f4f8fb;
+  font-size: 1.05rem;
+  font-family: 'Poppins',sans-serif;
+  margin-top: 2px;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page-footer {
+  margin-top: auto;
+}
