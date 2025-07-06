@@ -56,7 +56,7 @@ function unique_options($data_json, $field) {
 <div class="container" style='margin-top:90px;max-width:1140px;'>
   <div class="row justify-content-center">
     <div class="col-12 mt-5" style="padding:0;">
-      <div class="card shadow-lg border-0 rounded-lg" style="margin-bottom:32px;">
+      <div class="card shadow-lg border-0 rounded-lg w-100" style="margin-bottom:32px;">
         <div class="card-header text-white text-center" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0;">
           <h3 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;">
             <i class="fas fa-search mr-2"></i>Prediksi Kelayakan Bantuan Sosial
@@ -157,8 +157,8 @@ function unique_options($data_json, $field) {
           </section>
         </div>
       </div>
-      <div class="col-12 mt-2 mb-3">
-        <div class="card shadow-lg border-0 rounded-lg" style="background:#fafdff;">
+      <div class="col-12 mt-2 mb-3" style="padding:0;">
+        <div class="card shadow-lg border-0 rounded-lg w-100" style="background:#fafdff;">
           <div class="card-header text-white text-center" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0;">
             <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:600;">
               <i class="fas fa-check-circle mr-2"></i>Hasil Prediksi

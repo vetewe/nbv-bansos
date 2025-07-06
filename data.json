@@ -405,5 +405,16 @@
         "kepemilikan": "Pribadi",
         "atap_bangunan": "Emas",
         "keterangan": "tidak layak"
+    },
+    {
+        "nama": "Pipit",
+        "pekerjaan": "Pengangguran",
+        "usia": "45 Tahun",
+        "status": "Kawin",
+        "penghasilan": "<=1000000",
+        "kendaraan": "Angkutan Umum",
+        "kepemilikan": "Menyewa",
+        "atap_bangunan": "Seng",
+        "keterangan": "layak"
     }
 ]
