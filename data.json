@@ -394,5 +394,27 @@
         "kepemilikan": "Orang Tua",
         "atap_bangunan": "Asbes",
         "keterangan": "tidak layak"
+    },
+    {
+        "nama": "POPI",
+        "pekerjaan": "Petani",
+        "usia": "21 Tahun",
+        "status": "Kawin",
+        "penghasilan": "diatas 5000000",
+        "kendaraan": "Jet",
+        "kepemilikan": "Pribadi",
+        "atap_bangunan": "Genteng",
+        "keterangan": "tidak layak"
+    },
+    {
+        "nama": "W",
+        "pekerjaan": "Petani",
+        "usia": "21",
+        "status": "Kawin",
+        "penghasilan": "10000000",
+        "kendaraan": "Pesawat",
+        "kepemilikan": "Pribadi",
+        "atap_bangunan": "Plafon",
+        "keterangan": "layak"
     }
 ]

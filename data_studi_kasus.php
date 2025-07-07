@@ -60,6 +60,29 @@
                   <i class="fas fa-plus mr-1"></i>Tambah Data Latih
                 </button>
               </div>
+              <?php
+                $dataFile = 'data.json';
+                $json = file_get_contents($dataFile);
+                $hasil = json_decode($json, true);
+                $no = 1;
+                // Hitung jumlah layak dan tidak layak
+                $jumlah_layak = 0;
+                $jumlah_tidak_layak = 0;
+                foreach ($hasil as $row) {
+                  if (isset($row['keterangan'])) {
+                    if (strtolower($row['keterangan']) == 'layak') {
+                      $jumlah_layak++;
+                    } elseif (strtolower($row['keterangan']) == 'tidak layak') {
+                      $jumlah_tidak_layak++;
+                    }
+                  }
+                }
+              ?>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                  <canvas id="pieChartKelayakan"></canvas>
+                </div>
+              </div>
               <table id="dataLatih" class="display pt-3 mb-3" style="width:100%;margin:auto;font-size:0.97rem;">
                 <thead>
                   <tr>
@@ -77,10 +100,6 @@
                 </thead>
                 <tbody>
                 <?php
-                  $dataFile = 'data.json';
-                  $json = file_get_contents($dataFile);
-                  $hasil = json_decode($json, true);
-                  $no = 1;
                   foreach ($hasil as $row):
                 ?>
                 <tr>
@@ -186,6 +205,8 @@
 <script src="jspopper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/datatables.js"></script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   $(document).ready(function() {
     var table = $('#dataLatih').DataTable({
@@ -286,6 +307,58 @@
       $('#modalTambahDataLatih').modal('hide');
       this.reset();
     });
+
+    // Pie Chart Kelayakan (otomatis update)
+    var ctx = document.getElementById('pieChartKelayakan').getContext('2d');
+    var pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Layak', 'Tidak Layak'],
+        datasets: [{
+          data: [0, 0],
+          backgroundColor: [
+            'rgba(39, 174, 96, 0.8)',
+            'rgba(231, 76, 60, 0.8)'
+          ],
+          borderColor: [
+            'rgba(39, 174, 96, 1)',
+            'rgba(231, 76, 60, 1)'
+          ],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+              font: { size: 15 }
+            }
+          },
+          title: {
+            display: true,
+            text: 'Distribusi Data Kelayakan',
+            font: { size: 18 }
+          }
+        }
+      }
+    });
+
+    function updatePieChart() {
+      $.getJSON('data.json', function(data) {
+        var layak = 0, tidak = 0;
+        data.forEach(function(row) {
+          if (row.keterangan && row.keterangan.toLowerCase() === 'layak') layak++;
+          else if (row.keterangan && row.keterangan.toLowerCase() === 'tidak layak') tidak++;
+        });
+        pieChart.data.datasets[0].data = [layak, tidak];
+        pieChart.update();
+      });
+    }
+    updatePieChart();
+    setInterval(updatePieChart, 5000); // update tiap 5 detik
   });
 </script>
 
