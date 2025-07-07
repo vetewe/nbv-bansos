@@ -22,7 +22,7 @@ function prediksi_kelayakan($data) {
 
     // Hitung probabilitas untuk kelas layak dan tidak layak (Laplace Smoothing)
     $prob_layak = [
-        $obj->probPekerjaanLaplace($atribut['pekerjaan'], 1),
+        $obj->probPekerjaanLaplace($atribut['pekerjaan'], isLayak: 1),
         $obj->probUsiaLaplace($atribut['usia'], 1),
         $obj->probStatusLaplace($atribut['status'], 1),
         $obj->probPenghasilanLaplace($atribut['penghasilan'], 1),

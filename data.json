@@ -377,7 +377,7 @@
         "nama": "Dara",
         "pekerjaan": "Tidak Bekerja",
         "usia": "30-40 Tahun",
-        "status": "Kawin",
+        "status": "kawin",
         "penghasilan": "<=1000000",
         "kendaraan": "Motor",
         "kepemilikan": "Orang Tua",
@@ -386,35 +386,13 @@
     },
     {
         "nama": "Ayu",
-        "pekerjaan": "Konglomerat",
-        "usia": "20 Tahun",
-        "status": "Belum Kawin",
-        "penghasilan": "20000000000",
-        "kendaraan": "Jet Pribadi",
-        "kepemilikan": "Pribadi",
-        "atap_bangunan": "Emas",
-        "keterangan": "tidak layak"
-    },
-    {
-        "nama": "Vira",
-        "pekerjaan": "Konglomerat",
-        "usia": "20 Tahun",
+        "pekerjaan": "Wiraswasta",
+        "usia": "20-29 Tahun",
         "status": "Belum Kawin",
         "penghasilan": "diatas 5000000",
-        "kendaraan": "Mobil",
-        "kepemilikan": "Pribadi",
-        "atap_bangunan": "Emas",
-        "keterangan": "tidak layak"
-    },
-    {
-        "nama": "Pipit",
-        "pekerjaan": "Pengangguran",
-        "usia": "45 Tahun",
-        "status": "Kawin",
-        "penghasilan": "<=1000000",
         "kendaraan": "Angkutan Umum",
-        "kepemilikan": "Menyewa",
-        "atap_bangunan": "Seng",
-        "keterangan": "layak"
+        "kepemilikan": "Orang Tua",
+        "atap_bangunan": "Asbes",
+        "keterangan": "tidak layak"
     }
 ]

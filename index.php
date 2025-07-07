@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/gaya.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap" rel="stylesheet">
-  <title>Prediksi Naive Bayes</title>
+  <title>Naive Bayes - Prediksi Kelayakan Bantuan Sosial</title>
 </head>
 <body>
 
@@ -25,9 +25,14 @@ if (file_exists('data.json')) {
 
 function unique_options($data_json, $field) {
   $opts = [];
+  $opts_lower = [];
   foreach ($data_json as $row) {
-    if (!empty($row[$field]) && !in_array($row[$field], $opts)) {
-      $opts[] = $row[$field];
+    if (!empty($row[$field])) {
+      $key = strtolower(trim($row[$field]));
+      if (!in_array($key, $opts_lower)) {
+        $opts[] = $row[$field]; // simpan versi asli pertama yang ditemukan
+        $opts_lower[] = $key;
+      }
     }
   }
   sort($opts);
