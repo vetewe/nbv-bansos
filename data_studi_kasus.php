@@ -159,7 +159,7 @@
                     <?php endif; ?>
                   </td>
                   <td>
-                    <button class="btn btnPrintData" title="Cetak"><i class="fas fa-print"></i> Cetak</button>
+                    <button class="btn btnPrintData btnDetailData" title="Detail" data-index="<?= $no-2 ?>"><i class="fas fa-eye"></i> Detail</button>
                   </td>
                 </tr>
                 <?php endforeach; ?>
@@ -304,7 +304,8 @@
         dataObj['kepemilikan'],
         dataObj['atap_bangunan'],
         '<span class="badge badge-secondary" style="padding:10px">-</span>',
-        '<button class="btn btnPrintData" title="Print"><i class="fas fa-print"></i> Print</button>'
+        '<button class="btn btnPrintData btnDetailData" title="Detail" data-index="NEW">' +
+        '<i class="fas fa-eye"></i> Detail</button>'
       ]).draw(false);
 
       // Simpan ke data.json via AJAX
@@ -396,6 +397,15 @@
     }
     updatePieChart();
     setInterval(updatePieChart, 5000); // update tiap 5 detik
+
+    // Event Detail Data
+    $('#dataLatih tbody').on('click', '.btnDetailData', function() {
+      var rowIdx = $(this).attr('data-index');
+      if (rowIdx === 'NEW') {
+        rowIdx = table.rows().count() - 1;
+      }
+      window.location.href = 'laporan_prediksi.php?index=' + rowIdx;
+    });
   });
 </script>
 

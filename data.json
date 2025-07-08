@@ -405,38 +405,5 @@
         "kepemilikan": "Pribadi",
         "atap_bangunan": "Genteng",
         "keterangan": "tidak layak"
-    },
-    {
-        "nama": "Dinda",
-        "pekerjaan": "Dagang Cilok",
-        "usia": "21 Tahun",
-        "status": "Belum Kawin",
-        "penghasilan": "<=1000000",
-        "kendaraan": "Angkutan Umum",
-        "kepemilikan": "Orang Tua",
-        "atap_bangunan": "Daun",
-        "keterangan": "layak"
-    },
-    {
-        "nama": "P",
-        "pekerjaan": "Tidak Bekerja",
-        "usia": "21 Tahun",
-        "status": "Belum Kawin",
-        "penghasilan": "2000000-3000000",
-        "kendaraan": "Mobil",
-        "kepemilikan": "Menyewa",
-        "atap_bangunan": "Daun",
-        "keterangan": "tidak layak"
-    },
-    {
-        "nama": "Vira",
-        "pekerjaan": "Tidak Bekerja",
-        "usia": "20-29 Tahun",
-        "status": "Belum Kawin",
-        "penghasilan": "2000000-3000000",
-        "kendaraan": "Angkutan Umum",
-        "kepemilikan": "Menyewa",
-        "atap_bangunan": "Daun",
-        "keterangan": "tidak layak"
     }
 ]
