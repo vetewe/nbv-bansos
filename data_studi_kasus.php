@@ -86,12 +86,94 @@
               Data ini akan digunakan sebagai dasar dalam proses pelatihan model agar sistem dapat melakukan prediksi secara akurat dan membantu proses pengambilan keputusan dalam penyaluran bantuan secara tepat
             </p>
             <div style="width:100%;overflow-x:auto;">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <div></div>
-                <button class="btn btn-primary btn-sm" id="btnTambahDataLatih">
+              <!-- Tombol Tambah Data Latih di atas tabel -->
+              <div class="d-flex flex-row flex-wrap align-items-center justify-content-end mb-3 tombol-grup-laporan" style="gap:16px;">
+                <button class="btn btn-tambah-latih" id="btnTambahDataLatih" type="button">
                   <i class="fas fa-plus mr-1"></i>Tambah Data Latih
                 </button>
               </div>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                  <canvas id="pieChartKelayakan"></canvas>
+                  <div class="d-flex justify-content-center mt-3">
+                    <button class="btn btn-cetak-periode" id="btnCetakPeriode" type="button">
+                      <i class="fas fa-print mr-1"></i> Cetak Laporan Periode
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <style>
+                .tombol-grup-laporan .btn {
+                  min-width: 220px;
+                  height: 48px;
+                  font-size: 1.13rem;
+                  font-weight: 700;
+                  border-radius: 2.5rem;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 10px;
+                  box-shadow: 0 4px 24px rgba(51,102,153,0.13), 0 1.5px 8px #eaf6ff;
+                  padding: 0 36px;
+                  transition: all 0.22s cubic-bezier(.4,2,.3,1);
+                  margin: 0;
+                  border: none;
+                  backdrop-filter: blur(6px);
+                  background: rgba(255,255,255,0.18);
+                  outline: 2.5px solid #eaf6ff;
+                  outline-offset: 2.5px;
+                  position: relative;
+                  overflow: hidden;
+                }
+                .btn-tambah-latih {
+                  background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%);
+                  color: #fff;
+                  box-shadow: 0 4px 24px rgba(64,118,183,0.13), 0 1.5px 8px #eaf6ff;
+                }
+                .btn-tambah-latih:hover, .btn-tambah-latih:focus {
+                  background: linear-gradient(90deg, #336699 0%, #4076b7 100%);
+                  color: #fff;
+                  box-shadow: 0 8px 32px rgba(64,118,183,0.18), 0 2px 12px #eaf6ff;
+                  transform: scale(1.045);
+                  outline: 2.5px solid #4076b7;
+                }
+                .btn-cetak-periode {
+                  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+                  color: #fff;
+                  border: 2.5px solid #00b894;
+                  box-shadow: 0 4px 24px rgba(39,174,96,0.13), 0 1.5px 8px #eaf6ff;
+                  outline: 2.5px solid #eaf6ff;
+                  outline-offset: 2.5px;
+                }
+                .btn-cetak-periode:hover, .btn-cetak-periode:focus {
+                  background: linear-gradient(90deg, #00b894 0%, #27ae60 100%);
+                  color: #fff;
+                  box-shadow: 0 8px 32px rgba(39,174,96,0.18), 0 2px 12px #eaf6ff, 0 0 16px 2px #00b89455;
+                  border-color: #27ae60;
+                  transform: scale(1.045);
+                  outline: 2.5px solid #27ae60;
+                }
+                .tombol-grup-laporan .btn i, .btn-cetak-periode i {
+                  font-size: 1.25em;
+                  margin-right: 8px;
+                  filter: drop-shadow(0 2px 8px #eaf6ff);
+                }
+                @media (max-width: 600px) {
+                  .tombol-grup-laporan {
+                    flex-direction: column !important;
+                    align-items: stretch !important;
+                  }
+                  .tombol-grup-laporan .btn {
+                    min-width: 0;
+                    width: 100%;
+                    margin-bottom: 8px;
+                  }
+                }
+                /* Tombol cetak di bawah pie chart */
+                .btn-cetak-periode {
+                  margin-top: 12px;
+                }
+              </style>
               <?php
                 $dataFile = 'data.json';
                 $json = file_get_contents($dataFile);
@@ -110,11 +192,6 @@
                   }
                 }
               ?>
-              <div class="row justify-content-center mb-4">
-                <div class="col-md-6">
-                  <canvas id="pieChartKelayakan"></canvas>
-                </div>
-              </div>
               <table id="dataLatih" class="display pt-3 mb-3" style="width:100%;margin:auto;font-size:0.97rem;">
                 <thead>
                   <tr>
@@ -227,6 +304,54 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Batal</button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Pilih Periode Cetak -->
+<div class="modal fade" id="modalCetakPeriode" tabindex="-1" role="dialog" aria-labelledby="modalCetakPeriodeLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius:1rem;">
+      <div class="modal-header" style="background: linear-gradient(90deg, #27ae60 0%, #00b894 100%); border-radius:1rem 1rem 0 0;">
+        <h5 class="modal-title text-white font-weight-bold" id="modalCetakPeriodeLabel">
+          <i class="fas fa-calendar-alt mr-2"></i>Pilih Periode Laporan
+        </h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background:#fafdff;">
+        <form id="formPilihPeriode">
+          <div class="form-group">
+            <label for="bulanCetak"><i class="fas fa-calendar mr-1"></i>Bulan</label>
+            <select class="form-control" id="bulanCetak" name="bulanCetak" required>
+              <option value="" disabled selected>Pilih Bulan</option>
+              <option value="01">Januari</option>
+              <option value="02">Februari</option>
+              <option value="03">Maret</option>
+              <option value="04">April</option>
+              <option value="05">Mei</option>
+              <option value="06">Juni</option>
+              <option value="07">Juli</option>
+              <option value="08">Agustus</option>
+              <option value="09">September</option>
+              <option value="10">Oktober</option>
+              <option value="11">November</option>
+              <option value="12">Desember</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tahunCetak"><i class="fas fa-calendar-alt mr-1"></i>Tahun</label>
+            <select class="form-control" id="tahunCetak" name="tahunCetak" required>
+              <!-- Tahun akan diisi via JS -->
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="background:#fafdff;">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Tutup</button>
+        <button type="submit" class="btn btn-cetak-periode-modal" id="btnSubmitCetakPeriode"><i class="fas fa-print mr-1"></i>Cetak</button>
+      </div>
     </div>
   </div>
 </div>
@@ -405,6 +530,33 @@
         rowIdx = table.rows().count() - 1;
       }
       window.location.href = 'laporan_prediksi.php?index=' + rowIdx;
+    });
+
+    // Tampilkan modal pilih periode saat tombol cetak diklik
+    $('#btnCetakPeriode').on('click', function() {
+      // Isi tahun otomatis dari 2022 sampai tahun sekarang
+      var tahunSekarang = new Date().getFullYear();
+      var tahunMulai = 2022;
+      var $tahunSelect = $('#tahunCetak');
+      $tahunSelect.empty();
+      $tahunSelect.append('<option value="" disabled selected>Pilih Tahun</option>');
+      for (var t = tahunMulai; t <= tahunSekarang; t++) {
+        $tahunSelect.append('<option value="'+t+'">'+t+'</option>');
+      }
+      $('#modalCetakPeriode').modal('show');
+    });
+
+    // Submit form pilih periode
+    $('#formPilihPeriode').on('submit', function(e) {
+      e.preventDefault();
+      var bulan = $('#bulanCetak').val();
+      var tahun = $('#tahunCetak').val();
+      if (!bulan || !tahun) {
+        alert('Silakan pilih bulan dan tahun terlebih dahulu!');
+        return;
+      }
+      // Redirect ke halaman cetak periode
+      window.location.href = 'laporan_periode.php?bulan=' + bulan + '&tahun=' + tahun;
     });
   });
 </script>
