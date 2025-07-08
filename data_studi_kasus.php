@@ -13,6 +13,38 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/datatables.css">
+  <style>
+    .btnPrintData {
+      background: linear-gradient(90deg, #f7b731 0%, #4076b7 100%) !important;
+      color: #fff !important;
+      border: none;
+      border-radius: 20px !important;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 18px 6px 12px !important;
+      box-shadow: 0 2px 8px rgba(80,180,255,0.10);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btnPrintData i {
+      margin-right: 4px;
+      font-size: 1.1em;
+    }
+    .btnPrintData:hover {
+      background: linear-gradient(90deg, #4076b7 0%, #f7b731 100%) !important;
+      color: #fff !important;
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(80,180,255,0.18);
+    }
+    @media (max-width: 600px) {
+      .btnPrintData {
+        font-size: 0.75rem;
+        padding: 5px 10px 5px 8px !important;
+      }
+    }
+  </style>
   <title>Naive Bayes - Data Studi Kasus</title>
 </head>
 <body>
@@ -96,6 +128,7 @@
                     <th>Kepemilikan</th>
                     <th>Atap Bangunan</th>
                     <th>Keterangan</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -124,6 +157,9 @@
                     <?php else: ?>
                       -
                     <?php endif; ?>
+                  </td>
+                  <td>
+                    <button class="btn btnPrintData" title="Cetak"><i class="fas fa-print"></i> Cetak</button>
                   </td>
                 </tr>
                 <?php endforeach; ?>
@@ -267,7 +303,8 @@
         dataObj['kendaraan'],
         dataObj['kepemilikan'],
         dataObj['atap_bangunan'],
-        '<span class="badge badge-secondary" style="padding:10px">-</span>'
+        '<span class="badge badge-secondary" style="padding:10px">-</span>',
+        '<button class="btn btnPrintData" title="Print"><i class="fas fa-print"></i> Print</button>'
       ]).draw(false);
 
       // Simpan ke data.json via AJAX
