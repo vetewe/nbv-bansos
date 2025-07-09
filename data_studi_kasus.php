@@ -44,6 +44,151 @@
         padding: 5px 10px 5px 8px !important;
       }
     }
+    /* Modal Pilih Periode Laporan */
+    #modalCetakPeriode .modal-content {
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 32px rgba(39,174,96,0.13), 0 2px 12px #eaf6ff;
+      overflow: hidden;
+      border: none;
+    }
+    #modalCetakPeriode .modal-header {
+      background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+      border-radius: 1.2rem 1.2rem 0 0;
+      padding: 22px 28px 16px 28px;
+      box-shadow: 0 2px 12px #eaf6ff;
+      border-bottom: none;
+    }
+    #modalCetakPeriode .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #modalCetakPeriode .modal-title i {
+      font-size: 1.5em;
+      margin-right: 6px;
+    }
+    #modalCetakPeriode .close {
+      color: #fff;
+      opacity: 1;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: none;
+      outline: none;
+    }
+    #modalCetakPeriode .modal-body {
+      background: #fafdff;
+      padding: 28px 28px 18px 28px;
+    }
+    #modalCetakPeriode .form-group {
+      background: rgba(255,255,255,0.85);
+      border-radius: 1rem;
+      padding: 16px 18px 10px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 12px #eaf6ff33;
+    }
+    #modalCetakPeriode label {
+      font-weight: 700;
+      color: #27ae60;
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #modalCetakPeriode label i {
+      font-size: 1.2em;
+      color: #00b894;
+      margin-right: 6px;
+    }
+    #modalCetakPeriode select.form-control {
+      border-radius: 0.7rem;
+      font-size: 1.07rem;
+      padding: 10px 14px;
+      box-shadow: 0 1.5px 8px #eaf6ff33;
+      border: 1.5px solid #eaf6ff;
+      background: #fff;
+      color: #336699;
+      font-weight: 500;
+      margin-top: 4px;
+      height: auto;
+      min-height: 48px;
+      line-height: 1.4;
+      white-space: normal;
+      overflow: visible;
+    }
+    #modalCetakPeriode .modal-footer {
+      background: #fafdff;
+      border-top: none;
+      padding: 18px 28px 22px 28px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .btn-detail-periode-modal {
+      background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 2.5rem;
+      font-size: 1.13rem;
+      min-width: 140px;
+      box-shadow: 0 4px 24px rgba(39,174,96,0.13), 0 1.5px 8px #eaf6ff;
+      padding: 10px 28px;
+      border: none;
+      outline: 2.5px solid #eaf6ff;
+      outline-offset: 2.5px;
+      transition: all 0.18s cubic-bezier(.4,2,.3,1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-detail-periode-modal:hover, .btn-detail-periode-modal:focus {
+      background: linear-gradient(90deg, #00b894 0%, #27ae60 100%);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(39,174,96,0.18), 0 2px 12px #eaf6ff, 0 0 16px 2px #00b89455;
+      outline: 2.5px solid #27ae60;
+      transform: scale(1.045);
+    }
+    #modalCetakPeriode .btn-secondary {
+      border-radius: 2.5rem;
+      font-size: 1.13rem;
+      min-width: 120px;
+      font-weight: 700;
+      padding: 10px 24px;
+      background: #888;
+      color: #fff;
+      border: none;
+      box-shadow: 0 2px 8px #eaf6ff33;
+      transition: all 0.18s cubic-bezier(.4,2,.3,1);
+    }
+    #modalCetakPeriode .btn-secondary:hover, #modalCetakPeriode .btn-secondary:focus {
+      background: #555;
+      color: #fff;
+      outline: 2.5px solid #888;
+      transform: scale(1.045);
+    }
+    @media (max-width: 600px) {
+      #modalCetakPeriode .modal-dialog {
+        margin: 0.5rem;
+      }
+      #modalCetakPeriode .modal-content, #modalCetakPeriode .modal-header, #modalCetakPeriode .modal-footer, #modalCetakPeriode .modal-body {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+      }
+      #modalCetakPeriode .modal-header, #modalCetakPeriode .modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      #modalCetakPeriode .btn-detail-periode-modal, #modalCetakPeriode .btn-secondary {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 8px;
+      }
+    }
   </style>
   <title>Naive Bayes - Data Studi Kasus</title>
 </head>
@@ -320,11 +465,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" style="background:#fafdff;">
-        <form id="formPilihPeriode" action="laporan_per_periode.php" method="get">
+      <form id="formPilihPeriode" action="laporan_per_periode.php" method="get">
+        <div class="modal-body" style="background:#fafdff;">
           <div class="form-group">
             <label for="bulanCetak"><i class="fas fa-calendar mr-1"></i>Bulan</label>
-            <select class="form-control" id="bulanCetak" name="bulanCetak" required>
+            <select class="form-control" id="bulanCetak" name="bulan" required>
               <option value="" disabled selected>Pilih Bulan</option>
               <option value="01">Januari</option>
               <option value="02">Februari</option>
@@ -342,16 +487,16 @@
           </div>
           <div class="form-group">
             <label for="tahunCetak"><i class="fas fa-calendar-alt mr-1"></i>Tahun</label>
-            <select class="form-control" id="tahunCetak" name="tahunCetak" required>
+            <select class="form-control" id="tahunCetak" name="tahun" required>
               <!-- Tahun akan diisi via JS -->
             </select>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer" style="background:#fafdff;">
-        <button type="submit" class="btn btn-detail-periode-modal"><i class="fas fa-print mr-1"></i>Detail</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Tutup</button>
-      </div>
+        </div>
+        <div class="modal-footer" style="background:#fafdff;">
+          <button type="submit" class="btn btn-detail-periode-modal"><i class="fas fa-print mr-1"></i>Detail</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Tutup</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -529,7 +674,17 @@
       if (rowIdx === 'NEW') {
         rowIdx = table.rows().count() - 1;
       }
-      window.location.href = 'laporan_prediksi.php?index=' + rowIdx;
+      // Ambil data dari tabel
+      var rowData = table.row(rowIdx).data();
+      // Misal tanggal ada di kolom ke-10 (index 9)
+      var tanggal = rowData[9]; // Pastikan index sesuai kolom tanggal
+      if (tanggal && tanggal.length >= 10) {
+        var tahun = tanggal.substr(0,4);
+        var bulan = tanggal.substr(5,2);
+        window.location.href = 'laporan_per_periode.php?bulan=' + bulan + '&tahun=' + tahun;
+      } else {
+        alert('Tanggal tidak ditemukan pada data ini!');
+      }
     });
 
     $('#btnCetakPeriode').on('click', function() {

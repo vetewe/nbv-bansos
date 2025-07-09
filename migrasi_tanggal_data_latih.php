@@ -2,7 +2,7 @@
 // Script migrasi untuk menambahkan field 'tanggal_pengajuan' pada data lama di data.json
 
 $file = 'data.json';
-$defaultTanggal = '2024-07-03';
+$defaultTanggal = '2025-07-03';
 
 if (!file_exists($file)) {
     die('File data.json tidak ditemukan.');
