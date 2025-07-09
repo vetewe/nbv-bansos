@@ -7,7 +7,6 @@ $jumLayak      = $obj->sumLayak();
 $jumTidakLayak = $obj->sumTidakLayak();
 $jumData       = $obj->sumData();
 
-// Contoh input data (ubah sesuai kebutuhan)
 $input = [
     'pekerjaan'      => "Wiraswasta",
     'usia'           => "20-29 Tahun",
@@ -18,7 +17,6 @@ $input = [
     'atap_bangunan'  => "Asbes"
 ];
 
-// Probabilitas atribut (tanpa Laplace smoothing)
 $prob_layak = [
     $obj->probPekerjaanUtama($input['pekerjaan'], 1),
     $obj->probUsiaUtama($input['usia'], 1),
@@ -39,7 +37,6 @@ $prob_tidak = [
     $obj->probAtapUtama($input['atap_bangunan'], 0)
 ];
 
-// Hitung probabilitas akhir (tanpa Laplace)
 $paLayak      = $obj->hasilLayakUtama($jumLayak, $jumData, ...$prob_layak);
 $paTidakLayak = $obj->hasilTidakLayakUtama($jumTidakLayak, $jumData, ...$prob_tidak);
 

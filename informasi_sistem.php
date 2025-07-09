@@ -32,7 +32,6 @@
     </div>
   </div>
 </nav>
-
 <div class="container" style='margin-top:90px;max-width:1140px;'>
   <div class="row justify-content-center">
     <div class="col-12 mt-5" style="padding:0;">
@@ -92,18 +91,11 @@
     </div>
   </div>
 </div>
-
 <footer class="page-footer font-small abu1 mt-5">
   <div class="footer-copyright text-center py-3 abu2">
     ©<?php echo date('Y'); ?> Naïve Bayes Classifier
   </div>
 </footer>
-
 <script src="js/jquery.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.toggle').click(function(){
-      $('ul').toggleClass('active');
-    });
-  });
-</script>
+</body>
+</html>

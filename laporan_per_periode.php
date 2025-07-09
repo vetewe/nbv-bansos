@@ -1,14 +1,9 @@
 <?php
-// Ambil parameter bulan dan tahun dari GET
 $bulan = isset($_GET['bulan']) ? $_GET['bulan'] : '';
 $tahun = isset($_GET['tahun']) ? $_GET['tahun'] : '';
-
-// Ambil data dari data.json
 $dataFile = 'data.json';
 $json = file_get_contents($dataFile);
 $data = json_decode($json, true);
-
-// Fungsi untuk cek dan ambil bulan/tahun dari data
 function cocok_periode($row, $bulan, $tahun) {
     $tanggal = isset($row['tanggal_pengajuan']) ? $row['tanggal_pengajuan'] : (isset($row['tanggal']) ? $row['tanggal'] : '');
     if (!$tanggal) return false;
@@ -16,14 +11,10 @@ function cocok_periode($row, $bulan, $tahun) {
     if (count($parts) < 2) return false;
     return ($parts[0] == $tahun && $parts[1] == $bulan);
 }
-
-// Filter data: hanya yang layak dan sesuai periode
 $data_layak = array_filter($data, function($row) use ($bulan, $tahun) {
     if (!isset($row['keterangan']) || strtolower($row['keterangan']) !== 'layak') return false;
     return cocok_periode($row, $bulan, $tahun);
 });
-
-// Untuk judul bulan
 $nama_bulan = [
     '01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
     '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
@@ -31,6 +22,7 @@ $nama_bulan = [
 ];
 $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-';
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -263,7 +255,6 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
   </style>
 </head>
 <body>
-  <!-- HEADER/NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light static-top">
     <div class="container">
       <a class="navbar-brand" href="index.php">
@@ -281,9 +272,8 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
       </div>
     </div>
   </nav>
-  <!-- HERO SECTION -->
+ 
   <div class="hero-section"></div>
-  <!-- END HEADER/NAVBAR & HERO -->
   <div class="container print-container">
     <div class="header-flex" style="background:transparent;box-shadow:none;padding-bottom:0;margin-bottom:20px;">
       <div style="display:flex;align-items:center;gap:32px;width:100%;">
@@ -300,7 +290,7 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
     <div style="font-size:1.08rem;color:#4076b7;font-weight:500;text-align:center;margin-bottom:18px;margin-top:8px;">
       Berikut adalah daftar penerima SKTM layak hasil seleksi sistem pada periode ini.
     </div>
-    <!-- Ringkasan Data -->
+   
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;margin-bottom:8px !important;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;">
@@ -313,7 +303,7 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
         </div>
       </div>
     </div>
-    <!-- Tabel Data -->
+   
     <div style="margin-top:-6px;">
       <?php if (count($data_layak) > 0): ?>
       <div style="overflow-x:auto;display:flex;justify-content:center;">
@@ -356,7 +346,7 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
         </div>
       <?php endif; ?>
     </div>
-    <!-- Info & Catatan -->
+   
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;margin-top:18px;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0; position:relative; z-index:2;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;">
@@ -385,7 +375,7 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
         <i class="fas fa-shield-alt watermark-icon"></i>
       </div>
     </div>
-    <!-- Tombol Print -->
+ 
     <div class="d-print-none" style="display:flex;justify-content:center;align-items:center;margin-top:32px;">
       <button class="btn btn-print-glass" onclick="window.print()">
         <i class="fas fa-print"></i> Print

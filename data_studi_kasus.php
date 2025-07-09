@@ -44,7 +44,7 @@
         padding: 5px 10px 5px 8px !important;
       }
     }
-    /* Modal Pilih Periode Laporan */
+    
     #modalCetakPeriode .modal-content {
       border-radius: 1.2rem;
       box-shadow: 0 8px 32px rgba(39,174,96,0.13), 0 2px 12px #eaf6ff;
@@ -210,7 +210,6 @@
     </div>
   </div>
 </nav>
-
 <div class="container" style='margin-top:90px;max-width:1140px;'>
   <div class="row justify-content-center">
     <div class="col-12 mt-5" style="padding:0;">
@@ -231,7 +230,6 @@
               Data ini akan digunakan sebagai dasar dalam proses pelatihan model agar sistem dapat melakukan prediksi secara akurat dan membantu proses pengambilan keputusan dalam penyaluran bantuan secara tepat
             </p>
             <div style="width:100%;overflow-x:auto;">
-              <!-- Tombol Tambah Data Latih di atas tabel -->
               <div class="d-flex flex-row flex-wrap align-items-center justify-content-end mb-3 tombol-grup-laporan" style="gap:16px;">
                 <button class="btn btn-tambah-latih" id="btnTambahDataLatih" type="button">
                   <i class="fas fa-plus mr-1"></i>Tambah Data Latih
@@ -314,7 +312,6 @@
                     margin-bottom: 8px;
                   }
                 }
-                /* Tombol cetak di bawah pie chart */
                 .btn-cetak-periode {
                   margin-top: 12px;
                 }
@@ -324,7 +321,6 @@
                 $json = file_get_contents($dataFile);
                 $hasil = json_decode($json, true);
                 $no = 1;
-                // Hitung jumlah layak dan tidak layak
                 $jumlah_layak = 0;
                 $jumlah_tidak_layak = 0;
                 foreach ($hasil as $row) {
@@ -395,7 +391,6 @@
   </div>
 </div>
 
-<!-- Modal Tambah Data Latih -->
 <div class="modal fade" id="modalTambahDataLatih" tabindex="-1" role="dialog" aria-labelledby="modalTambahDataLatihLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius:1rem;">
@@ -453,7 +448,6 @@
   </div>
 </div>
 
-<!-- Modal Pilih Periode Cetak -->
 <div class="modal fade" id="modalCetakPeriode" tabindex="-1" role="dialog" aria-labelledby="modalCetakPeriodeLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius:1rem;">
@@ -488,7 +482,6 @@
           <div class="form-group">
             <label for="tahunCetak"><i class="fas fa-calendar-alt mr-1"></i>Tahun</label>
             <select class="form-control" id="tahunCetak" name="tahun" required>
-              <!-- Tahun akan diisi via JS -->
             </select>
           </div>
         </div>
@@ -500,18 +493,15 @@
     </div>
   </div>
 </div>
-
 <footer class="page-footer font-small abu1 mt-5">
   <div class="footer-copyright text-center py-3 abu2">
     ©<?php echo date('Y'); ?> Naïve Bayes Classifier
   </div>
 </footer>
-
 <script src="js/jquery.js"></script>
 <script src="jspopper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/datatables.js"></script>
-<!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   $(document).ready(function() {
@@ -522,16 +512,12 @@
       ],
       "order": []
     });
-
-    // Auto-numbering kolom No
     table.on('order.dt search.dt draw.dt', function () {
       table.column(0, {search:'applied', order:'applied'}).nodes().each(function (cell, i) {
         cell.innerHTML = i + 1;
       });
     }).draw();
-
     $("#btnTambahDataLatih").appendTo($('#dataLatih_filter'));
-
     $('#btnTambahDataLatih')
       .removeClass('btn-primary')
       .addClass('btn-info btn-xs shadow-sm')
@@ -548,11 +534,9 @@
         'box-shadow':'0 2px 8px rgba(80,180,255,0.10)'
       })
       .html('<i class="fas fa-plus-circle mr-1"></i>Tambah Data Latih');
-
     $('#btnTambahDataLatih').on('click', function() {
       $('#modalTambahDataLatih').modal('show');
     });
-
     $('#formTambahDataLatih').on('submit', function(e) {
       e.preventDefault();
       var formData = $(this).serializeArray();
@@ -561,10 +545,8 @@
         dataObj[item.name] = item.value;
       });
       dataObj['keterangan'] = '-';
-
-      // Tambahkan ke tabel DataTables (tanpa reload)
       table.row.add([
-        "", // kolom No diisi otomatis
+        "", 
         dataObj['nama'],
         dataObj['pekerjaan'],
         dataObj['usia'],
@@ -578,7 +560,6 @@
         '<i class="fas fa-eye"></i> Detail</button>'
       ]).draw(false);
 
-      // Simpan ke data.json via AJAX
       $.ajax({
         url: 'simpan_data_latih.php',
         method: 'POST',
@@ -586,19 +567,14 @@
         success: function(res) {
           let hasil = res;
           if (typeof res === "string") hasil = JSON.parse(res);
-
           let badge = '-';
           if (hasil.keterangan === 'layak') {
             badge = "<span class='badge badge-success' style='padding:10px'>layak</span>";
           } else if (hasil.keterangan === 'tidak layak') {
             badge = "<span class='badge badge-danger' style='padding:10px'>tidak layak</span>";
           }
-
-          // Update baris terakhir (data baru) dengan badge keterangan
           let rowIdx = table.rows().count() - 1;
           table.cell(rowIdx, 9).data(badge).draw(false);
-
-          // Notifikasi sukses
           $('<div class="alert alert-success alert-dismissible fade show" role="alert" style="position:fixed;top:80px;right:30px;z-index:9999;min-width:220px;">' +
             '<i class="fas fa-check-circle mr-2"></i>Data berhasil ditambahkan!' +
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline:none;"><span aria-hidden="true">&times;</span></button>' +
@@ -611,12 +587,10 @@
           alert('Gagal menyimpan data ke file!');
         }
       });
-
       $('#modalTambahDataLatih').modal('hide');
       this.reset();
     });
 
-    // Pie Chart Kelayakan (otomatis update)
     var ctx = document.getElementById('pieChartKelayakan').getContext('2d');
     var pieChart = new Chart(ctx, {
       type: 'pie',
@@ -653,7 +627,6 @@
         }
       }
     });
-
     function updatePieChart() {
       $.getJSON('data.json', function(data) {
         var layak = 0, tidak = 0;
@@ -666,18 +639,14 @@
       });
     }
     updatePieChart();
-    setInterval(updatePieChart, 5000); // update tiap 5 detik
-
-    // Event Detail Data di modal
+    setInterval(updatePieChart, 5000); 
     $('#dataLatih tbody').on('click', '.btnDetailData', function() {
       var rowIdx = $(this).attr('data-index');
       if (rowIdx === 'NEW') {
         rowIdx = table.rows().count() - 1;
       }
-      // Ambil data dari tabel
       var rowData = table.row(rowIdx).data();
-      // Misal tanggal ada di kolom ke-10 (index 9)
-      var tanggal = rowData[9]; // Pastikan index sesuai kolom tanggal
+      var tanggal = rowData[9];
       if (tanggal && tanggal.length >= 10) {
         var tahun = tanggal.substr(0,4);
         var bulan = tanggal.substr(5,2);
@@ -686,8 +655,6 @@
         alert('Tanggal tidak ditemukan pada data ini!');
       }
     });
-
-    // Event Detail Data di tabel
     $('#dataLatih tbody').on('click', '.btnDetailEachData', function() {
       var rowIdx = $(this).attr('data-index');
       if (rowIdx === 'NEW') {
@@ -706,8 +673,6 @@
       }
       $('#modalCetakPeriode').modal('show');
     });
-
-    // Validasi sebelum submit form pilih periode
     $('#formPilihPeriode').on('submit', function(e) {
       var bulan = $('#bulanCetak').val();
       var tahun = $('#tahunCetak').val();
@@ -716,10 +681,8 @@
         e.preventDefault();
         return false;
       }
-      // Jika valid, biarkan form submit secara default (GET)
     });
   });
 </script>
-
 </body>
 </html>

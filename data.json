@@ -442,17 +442,5 @@
         "atap_bangunan": "Genteng",
         "keterangan": "tidak layak",
         "tanggal_pengajuan": "2025-07-08"
-    },
-    {
-        "nama": "A",
-        "pekerjaan": "Petani",
-        "usia": "61",
-        "status": "Kawin",
-        "penghasilan": "2000000",
-        "kendaraan": "Angkutan Umum",
-        "kepemilikan": "Pribadi",
-        "atap_bangunan": "Daun",
-        "keterangan": "layak",
-        "tanggal_pengajuan": "2025-07-08"
     }
 ]

@@ -15,14 +15,12 @@
   <title>Naive Bayes - Prediksi Kelayakan Bantuan Sosial</title>
 </head>
 <body>
-
 <?php
 $data_json = [];
 if (file_exists('data.json')) {
   $json = file_get_contents('data.json');
   $data_json = json_decode($json, true);
 }
-
 function unique_options($data_json, $field) {
   $opts = [];
   $opts_lower = [];
@@ -30,7 +28,7 @@ function unique_options($data_json, $field) {
     if (!empty($row[$field])) {
       $key = strtolower(trim($row[$field]));
       if (!in_array($key, $opts_lower)) {
-        $opts[] = $row[$field]; // simpan versi asli pertama yang ditemukan
+        $opts[] = $row[$field];
         $opts_lower[] = $key;
       }
     }
@@ -39,7 +37,6 @@ function unique_options($data_json, $field) {
   return $opts;
 }
 ?>
-
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light static-top">
   <div class="container">
     <a class="navbar-brand" href="index.php">
@@ -57,7 +54,6 @@ function unique_options($data_json, $field) {
     </div>
   </div>
 </nav>
-
 <div class="container" style='margin-top:90px;max-width:1140px;'>
   <div class="row justify-content-center">
     <div class="col-12 mt-5" style="padding:0;">
@@ -179,13 +175,11 @@ function unique_options($data_json, $field) {
     </div>
   </div>
 </div>
-
 <footer class="page-footer font-small abu1 mt-5">
   <div class="footer-copyright text-center py-3 abu2">
     ©<?php echo date('Y'); ?> Naïve Bayes Classifier
   </div>
 </footer>
-
 <script src="js/jquery.js"></script>
 <script src="jspopper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -201,7 +195,6 @@ function unique_options($data_json, $field) {
       { id: "kepemilikan", msg: "Kepemilikan tidak boleh kosong" },
       { id: "atap_bangunan", msg: "Atap Bangunan tidak boleh kosong" }
     ];
-
     let data = {};
     for (let field of fields) {
       let val = $("#" + field.id).val();
@@ -211,7 +204,6 @@ function unique_options($data_json, $field) {
       }
       data[field.id] = val;
     }
-
     $.ajax({
       url: 'studi_kasus.php',
       type: 'POST',
@@ -224,10 +216,8 @@ function unique_options($data_json, $field) {
         }, 500);
       }
     });
-
     return false;
   }
-
   $(document).ready(function () {
     $('form').on('reset', function () {
       setTimeout(function () {

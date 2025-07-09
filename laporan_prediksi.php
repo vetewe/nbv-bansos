@@ -72,12 +72,12 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
       background: linear-gradient(135deg, #eaf6ff 0%, #fafdff 100%);
       font-family: 'Poppins', Arial, sans-serif;
       min-height: 100vh;
-      font-size: 0.93rem; /* Ukuran teks utama dikecilkan */
+      font-size: 0.93rem; 
     }
     .main-container {
       margin-top:0;
       max-width:1140px;
-      font-size: 0.97rem; /* Sedikit lebih kecil */
+      font-size: 0.97rem; 
     }
     .print-container {
       width: 100%;
@@ -91,7 +91,6 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
       backdrop-filter: blur(10px);
       border: 2px solid #eaf6ff;
     }
-    /* Header Glassmorphism */
     .header-flex {
       display: flex;
       align-items: center;
@@ -124,7 +123,7 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
     .judul-laporan {
       font-family: 'Poppins', sans-serif;
       font-weight: 800;
-      font-size: 1.45rem; /* Dikecilkan dari 2.5rem */
+      font-size: 1.45rem; 
       background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%);
       color: #fff;
       border-radius: 14px;
@@ -404,7 +403,7 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
         </div>
       </div>
     </div>
-    <!-- Identitas Calon Penerima -->
+
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;"><i class="fas fa-user mr-2"></i>Data Calon Penerima</h5>
@@ -443,7 +442,7 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
         <i class="fas fa-user-shield" style="position:absolute;right:24px;bottom:10px;font-size:4.5rem;color:#eaf6ff;opacity:0.13;pointer-events:none;z-index:1;"></i>
       </div>
     </div>
-    <!-- Ringkasan Data Sistem -->
+
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0; position:relative; z-index:2;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;"><i class="fas fa-database mr-2"></i>Ringkasan Data Sistem</h5>
@@ -469,7 +468,7 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
         <i class="fas fa-database" style="position:absolute;right:24px;bottom:10px;font-size:4.5rem;color:#eaf6ff;opacity:0.13;pointer-events:none;z-index:1;"></i>
       </div>
     </div>
-    <!-- Detail Analisis Prediksi -->
+
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0; position:relative; z-index:2;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;"><i class="fas fa-chart-bar mr-2"></i>Analisis Prediksi</h5>
@@ -540,7 +539,7 @@ $hasil_prediksi   = ($paLayak > $paTidakLayak) ? "layak" : "tidak layak";
         <i class="fas fa-check-circle" style="position:absolute;right:24px;bottom:10px;font-size:4.5rem;color:#eaf6ff;opacity:0.13;pointer-events:none;z-index:1;"></i>
       </div>
     </div>
-    <!-- Gabungan Instruksi, Kontak, Catatan -->
+
     <div class="card shadow-lg border-0 rounded-lg w-100 mb-4" style="position:relative;overflow:hidden;">
       <div class="card-header text-white" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%) !important; border-radius:0.7rem 0.7rem 0 0; position:relative; z-index:2;">
         <h5 class="mb-0" style="font-family: 'Poppins', sans-serif; font-weight:700; letter-spacing:1px;">
