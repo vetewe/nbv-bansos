@@ -321,7 +321,7 @@
         </button>
       </div>
       <div class="modal-body" style="background:#fafdff;">
-        <form id="formPilihPeriode">
+        <form id="formPilihPeriode" action="laporan_per_periode.php" method="get">
           <div class="form-group">
             <label for="bulanCetak"><i class="fas fa-calendar mr-1"></i>Bulan</label>
             <select class="form-control" id="bulanCetak" name="bulanCetak" required>
@@ -349,8 +349,8 @@
         </form>
       </div>
       <div class="modal-footer" style="background:#fafdff;">
+        <button type="submit" class="btn btn-detail-periode-modal"><i class="fas fa-print mr-1"></i>Detail</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Tutup</button>
-        <button type="submit" class="btn btn-cetak-periode-modal" id="btnSubmitCetakPeriode"><i class="fas fa-print mr-1"></i>Cetak</button>
       </div>
     </div>
   </div>
@@ -532,11 +532,9 @@
       window.location.href = 'laporan_prediksi.php?index=' + rowIdx;
     });
 
-    // Tampilkan modal pilih periode saat tombol cetak diklik
     $('#btnCetakPeriode').on('click', function() {
-      // Isi tahun otomatis dari 2022 sampai tahun sekarang
       var tahunSekarang = new Date().getFullYear();
-      var tahunMulai = 2022;
+      var tahunMulai = 2025;
       var $tahunSelect = $('#tahunCetak');
       $tahunSelect.empty();
       $tahunSelect.append('<option value="" disabled selected>Pilih Tahun</option>');
@@ -546,17 +544,16 @@
       $('#modalCetakPeriode').modal('show');
     });
 
-    // Submit form pilih periode
+    // Validasi sebelum submit form pilih periode
     $('#formPilihPeriode').on('submit', function(e) {
-      e.preventDefault();
       var bulan = $('#bulanCetak').val();
       var tahun = $('#tahunCetak').val();
       if (!bulan || !tahun) {
         alert('Silakan pilih bulan dan tahun terlebih dahulu!');
-        return;
+        e.preventDefault();
+        return false;
       }
-      // Redirect ke halaman cetak periode
-      window.location.href = 'laporan_periode.php?bulan=' + bulan + '&tahun=' + tahun;
+      // Jika valid, biarkan form submit secara default (GET)
     });
   });
 </script>

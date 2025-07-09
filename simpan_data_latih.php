@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prediksi keterangan
     $dataBaru['keterangan'] = prediksi_kelayakan($dataBaru);
+    // Tambahkan tanggal pengajuan otomatis
+    $dataBaru['tanggal_pengajuan'] = date('Y-m-d');
 
     // Simpan ke file
     $data = [];
