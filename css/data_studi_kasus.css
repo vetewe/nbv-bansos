@@ -1,0 +1,245 @@
+/* Pindahan dari <style> di data_studi_kasus.php */
+.btnPrintData {
+  background: linear-gradient(90deg, #f7b731 0%, #4076b7 100%) !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 20px !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 18px 6px 12px !important;
+  box-shadow: 0 2px 8px rgba(80,180,255,0.10);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btnPrintData i {
+  margin-right: 4px;
+  font-size: 1.1em;
+}
+.btnPrintData:hover {
+  background: linear-gradient(90deg, #4076b7 0%, #f7b731 100%) !important;
+  color: #fff !important;
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(80,180,255,0.18);
+}
+@media (max-width: 600px) {
+  .btnPrintData {
+    font-size: 0.75rem;
+    padding: 5px 10px 5px 8px !important;
+  }
+}
+/* Modal Pilih Periode Laporan */
+#modalCetakPeriode .modal-content {
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(39,174,96,0.13), 0 2px 12px #eaf6ff;
+  overflow: hidden;
+  border: none;
+}
+#modalCetakPeriode .modal-header {
+  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+  border-radius: 1.2rem 1.2rem 0 0;
+  padding: 22px 28px 16px 28px;
+  box-shadow: 0 2px 12px #eaf6ff;
+  border-bottom: none;
+}
+#modalCetakPeriode .modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#modalCetakPeriode .modal-title i {
+  font-size: 1.5em;
+  margin-right: 6px;
+}
+#modalCetakPeriode .close {
+  color: #fff;
+  opacity: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: none;
+  outline: none;
+}
+#modalCetakPeriode .modal-body {
+  background: #fafdff;
+  padding: 28px 28px 18px 28px;
+}
+#modalCetakPeriode .form-group {
+  background: rgba(255,255,255,0.85);
+  border-radius: 1rem;
+  padding: 16px 18px 10px 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 12px #eaf6ff33;
+}
+#modalCetakPeriode label {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#modalCetakPeriode label i {
+  font-size: 1.2em;
+  color: #00b894;
+  margin-right: 6px;
+}
+#modalCetakPeriode select.form-control {
+  border-radius: 0.7rem;
+  font-size: 1.07rem;
+  padding: 10px 14px;
+  box-shadow: 0 1.5px 8px #eaf6ff33;
+  border: 1.5px solid #eaf6ff;
+  background: #fff;
+  color: #336699;
+  font-weight: 500;
+  margin-top: 4px;
+  height: auto;
+  min-height: 48px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow: visible;
+}
+#modalCetakPeriode .modal-footer {
+  background: #fafdff;
+  border-top: none;
+  padding: 18px 28px 22px 28px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.btn-detail-periode-modal {
+  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 2.5rem;
+  font-size: 1.13rem;
+  min-width: 140px;
+  box-shadow: 0 4px 24px rgba(39,174,96,0.13), 0 1.5px 8px #eaf6ff;
+  padding: 10px 28px;
+  border: none;
+  outline: 2.5px solid #eaf6ff;
+  outline-offset: 2.5px;
+  transition: all 0.18s cubic-bezier(.4,2,.3,1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-detail-periode-modal:hover, .btn-detail-periode-modal:focus {
+  background: linear-gradient(90deg, #00b894 0%, #27ae60 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(39,174,96,0.18), 0 2px 12px #eaf6ff, 0 0 16px 2px #00b89455;
+  outline: 2.5px solid #27ae60;
+  transform: scale(1.045);
+}
+#modalCetakPeriode .btn-secondary {
+  border-radius: 2.5rem;
+  font-size: 1.13rem;
+  min-width: 120px;
+  font-weight: 700;
+  padding: 10px 24px;
+  background: #888;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px #eaf6ff33;
+  transition: all 0.18s cubic-bezier(.4,2,.3,1);
+}
+#modalCetakPeriode .btn-secondary:hover, #modalCetakPeriode .btn-secondary:focus {
+  background: #555;
+  color: #fff;
+  outline: 2.5px solid #888;
+  transform: scale(1.045);
+}
+@media (max-width: 600px) {
+  #modalCetakPeriode .modal-dialog {
+    margin: 0.5rem;
+  }
+  #modalCetakPeriode .modal-content, #modalCetakPeriode .modal-header, #modalCetakPeriode .modal-footer, #modalCetakPeriode .modal-body {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  #modalCetakPeriode .modal-header, #modalCetakPeriode .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  #modalCetakPeriode .btn-detail-periode-modal, #modalCetakPeriode .btn-secondary {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 8px;
+  }
+}
+.tombol-grup-laporan .btn {
+  min-width: 220px;
+  height: 48px;
+  font-size: 1.13rem;
+  font-weight: 700;
+  border-radius: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(51,102,153,0.13), 0 1.5px 8px #eaf6ff;
+  padding: 0 36px;
+  transition: all 0.22s cubic-bezier(.4,2,.3,1);
+  margin: 0;
+  border: none;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.18);
+  outline: 2.5px solid #eaf6ff;
+  outline-offset: 2.5px;
+  position: relative;
+  overflow: hidden;
+}
+.btn-tambah-latih {
+  background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(64,118,183,0.13), 0 1.5px 8px #eaf6ff;
+}
+.btn-tambah-latih:hover, .btn-tambah-latih:focus {
+  background: linear-gradient(90deg, #336699 0%, #4076b7 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(64,118,183,0.18), 0 2px 12px #eaf6ff;
+  transform: scale(1.045);
+  outline: 2.5px solid #4076b7;
+}
+.btn-cetak-periode {
+  background: linear-gradient(90deg, #27ae60 0%, #00b894 100%);
+  color: #fff;
+  border: 2.5px solid #00b894;
+  box-shadow: 0 4px 24px rgba(39,174,96,0.13), 0 1.5px 8px #eaf6ff;
+  outline: 2.5px solid #eaf6ff;
+  outline-offset: 2.5px;
+}
+.btn-cetak-periode:hover, .btn-cetak-periode:focus {
+  background: linear-gradient(90deg, #00b894 0%, #27ae60 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(39,174,96,0.18), 0 2px 12px #eaf6ff, 0 0 16px 2px #00b89455;
+  border-color: #27ae60;
+  transform: scale(1.045);
+  outline: 2.5px solid #27ae60;
+}
+.tombol-grup-laporan .btn i, .btn-cetak-periode i {
+  font-size: 1.25em;
+  margin-right: 8px;
+  filter: drop-shadow(0 2px 8px #eaf6ff);
+}
+@media (max-width: 600px) {
+  .tombol-grup-laporan {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .tombol-grup-laporan .btn {
+    min-width: 0;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+.btn-cetak-periode {
+  margin-top: 12px;
+} 

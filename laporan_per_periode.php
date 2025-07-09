@@ -352,7 +352,7 @@ $judul_periode = ($bulan && $tahun) ? ($nama_bulan[$bulan] . ' ' . $tahun) : '-'
       </div>
       <?php else: ?>
         <div class="alert alert-warning text-center" style="margin:32px auto;max-width:500px;font-size:1.1rem;">
-          <i class="fas fa-exclamation-circle mr-2"></i>Data penerima layak untuk periode ini tidak ditemukan atau data belum memiliki tanggal.
+          <i class="fas fa-exclamation-circle mr-2"></i>Data penerima layak untuk periode ini tidak ditemukan.
         </div>
       <?php endif; ?>
     </div>

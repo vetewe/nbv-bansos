@@ -381,7 +381,7 @@
                     <?php endif; ?>
                   </td>
                   <td>
-                    <button class="btn btnPrintData btnDetailData" title="Detail" data-index="<?= $no-2 ?>"><i class="fas fa-eye"></i> Detail</button>
+                    <button class="btn btnPrintData btnDetailEachData" title="Detail" data-index="<?= $no-2 ?>"><i class="fas fa-eye"></i> Detail</button>
                   </td>
                 </tr>
                 <?php endforeach; ?>
@@ -398,55 +398,55 @@
 <!-- Modal Tambah Data Latih -->
 <div class="modal fade" id="modalTambahDataLatih" tabindex="-1" role="dialog" aria-labelledby="modalTambahDataLatihLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content modal-glass" style="border-radius:1.3rem; box-shadow: 0 8px 32px rgba(64,118,183,0.18), 0 2px 12px #eaf6ff; border: none; overflow: hidden;">
-      <div class="modal-header" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%); border-radius:1.3rem 1.3rem 0 0; padding: 1.2rem 2rem;">
-        <h5 class="modal-title text-white font-weight-bold" id="modalTambahDataLatihLabel" style="font-size:1.35rem; letter-spacing:0.5px;">
+    <div class="modal-content" style="border-radius:1rem;">
+      <div class="modal-header" style="background: linear-gradient(90deg, #4076b7 0%, #6ba6df 100%); border-radius:1rem 1rem 0 0;">
+        <h5 class="modal-title text-white font-weight-bold" id="modalTambahDataLatihLabel">
           <i class="fas fa-plus-circle mr-2"></i>Tambah Data Latih
         </h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1; font-size:2rem;">
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <form id="formTambahDataLatih" autocomplete="off">
-        <div class="modal-body" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);padding:2.2rem 2.2rem 1.2rem 2.2rem;">
+        <div class="modal-body" style="background:#fafdff;">
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-user mr-1"></i>Nama</label>
-              <input type="text" class="form-control input-glass" name="nama" placeholder="Nama Lengkap" required>
+              <label><i class="fas fa-user mr-1"></i>Nama</label>
+              <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-user-friends mr-1"></i>Usia</label>
-              <input type="text" class="form-control input-glass" name="usia" placeholder="Contoh: 18-25 Tahun" required>
+              <label><i class="fas fa-user-friends mr-1"></i>Usia</label>
+              <input type="text" class="form-control" name="usia" placeholder="Contoh: 18-25 Tahun" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-briefcase mr-1"></i>Pekerjaan</label>
-              <input type="text" class="form-control input-glass" name="pekerjaan" placeholder="Contoh: Petani" required>
+              <label><i class="fas fa-briefcase mr-1"></i>Pekerjaan</label>
+              <input type="text" class="form-control" name="pekerjaan" placeholder="Contoh: Petani" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-heart mr-1"></i>Status</label>
-              <input type="text" class="form-control input-glass" name="status" placeholder="Contoh: Belum Kawin" required>
+              <label><i class="fas fa-heart mr-1"></i>Status</label>
+              <input type="text" class="form-control" name="status" placeholder="Contoh: Belum Kawin" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-car mr-1"></i>Kendaraan</label>
-              <input type="text" class="form-control input-glass" name="kendaraan" placeholder="Contoh: Motor" required>
+              <label><i class="fas fa-car mr-1"></i>Kendaraan</label>
+              <input type="text" class="form-control" name="kendaraan" placeholder="Contoh: Motor" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-money-bill-wave mr-1"></i>Penghasilan</label>
-              <input type="text" class="form-control input-glass" name="penghasilan" placeholder="Contoh: 1000000 - 2000000" required>
+              <label><i class="fas fa-money-bill-wave mr-1"></i>Penghasilan</label>
+              <input type="text" class="form-control" name="penghasilan" placeholder="Contoh: 1000000 - 2000000" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-home mr-1"></i>Kepemilikan</label>
-              <input type="text" class="form-control input-glass" name="kepemilikan" placeholder="Contoh: Pribadi" required>
+              <label><i class="fas fa-home mr-1"></i>Kepemilikan</label>
+              <input type="text" class="form-control" name="kepemilikan" placeholder="Contoh: Pribadi" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label class="font-weight-bold"><i class="fas fa-warehouse mr-1"></i>Atap Bangunan</label>
-              <input type="text" class="form-control input-glass" name="atap_bangunan" placeholder="Contoh: Genteng" required>
+              <label><i class="fas fa-warehouse mr-1"></i>Atap Bangunan</label>
+              <input type="text" class="form-control" name="atap_bangunan" placeholder="Contoh: Genteng" required>
             </div>
           </div>
         </div>
-        <div class="modal-footer" style="background:rgba(250,253,255,0.95);border-top:none;padding:1.2rem 2.2rem 1.7rem 2.2rem;">
-          <button type="submit" class="btn btn-success btn-glass mr-2" style="min-width:140px;font-size:1.08rem;font-weight:600;border-radius:2rem;box-shadow:0 2px 8px rgba(39,174,96,0.10);"><i class="fas fa-save mr-1"></i>Submit</button>
-          <button type="button" class="btn btn-secondary btn-glass" data-dismiss="modal" style="min-width:110px;font-size:1.08rem;font-weight:600;border-radius:2rem;box-shadow:0 2px 8px rgba(51,102,153,0.10);"><i class="fas fa-times mr-1"></i>Batal</button>
+        <div class="modal-footer" style="background:#fafdff;">
+          <button type="submit" class="btn btn-success"><i class="fas fa-save mr-1"></i>Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Batal</button>
         </div>
       </form>
     </div>
@@ -668,7 +668,7 @@
     updatePieChart();
     setInterval(updatePieChart, 5000); // update tiap 5 detik
 
-    // Event Detail Data
+    // Event Detail Data di modal
     $('#dataLatih tbody').on('click', '.btnDetailData', function() {
       var rowIdx = $(this).attr('data-index');
       if (rowIdx === 'NEW') {
@@ -687,6 +687,14 @@
       }
     });
 
+    // Event Detail Data di tabel
+    $('#dataLatih tbody').on('click', '.btnDetailEachData', function() {
+      var rowIdx = $(this).attr('data-index');
+      if (rowIdx === 'NEW') {
+        rowIdx = table.rows().count() - 1;
+      }
+      window.location.href = 'laporan_prediksi.php?index=' + rowIdx;
+    });
     $('#btnCetakPeriode').on('click', function() {
       var tahunSekarang = new Date().getFullYear();
       var tahunMulai = 2025;
@@ -712,49 +720,6 @@
     });
   });
 </script>
-<style>
-  .modal-glass {
-    background: rgba(255,255,255,0.82) !important;
-    backdrop-filter: blur(14px) !important;
-    box-shadow: 0 8px 32px rgba(64,118,183,0.18), 0 2px 12px #eaf6ff !important;
-    border-radius: 1.3rem !important;
-    border: none !important;
-    overflow: hidden;
-  }
-  .input-glass {
-    background: rgba(255,255,255,0.65) !important;
-    border: 1.5px solid #eaf6ff !important;
-    border-radius: 1.2rem !important;
-    box-shadow: 0 2px 8px rgba(51,102,153,0.06);
-    font-size: 1.07rem;
-    padding: 0.85rem 1.2rem;
-    transition: border 0.18s, box-shadow 0.18s;
-  }
-  .input-glass:focus {
-    border: 1.5px solid #4076b7 !important;
-    box-shadow: 0 4px 16px rgba(64,118,183,0.13);
-    background: #fff !important;
-  }
-  .btn-glass {
-    box-shadow: 0 2px 8px rgba(51,102,153,0.08);
-    border-radius: 2rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.18s;
-  }
-  .btn-glass:active, .btn-glass:focus {
-    outline: 2.5px solid #4076b7;
-    outline-offset: 2.5px;
-  }
-  @media (max-width: 600px) {
-    .modal-body {
-      padding: 1.1rem 0.7rem 0.7rem 0.7rem !important;
-    }
-    .modal-footer {
-      padding: 1.1rem 0.7rem 1.2rem 0.7rem !important;
-    }
-  }
-</style>
 
 </body>
 </html>
